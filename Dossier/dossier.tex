@@ -1,0 +1,124 @@
+\documentclass[11pt, a4paper]{report}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{soul}
+\usepackage{amssymb} %noms d'ensembles (R par exemple)
+\usepackage{graphicx} %utilisation d'images
+\usepackage{amsmath}
+\usepackage{relsize}
+\newcommand*{\defeq}{\stackrel{\mathsmaller{\mathsf{def}}}{=}}
+  
+\title{Dessinons des gammes}
+\author{EYER Emilie et ZAMBAUX Gauthier - MP* - Lycée Henri Poincaré}
+\date{Année scolaire 2014/2015}
+
+\begin{document}
+\maketitle
+
+\chapter*{Introduction}
+En musique, une note est avant tout caractérisée par sa fréquence qui varie de façon continue sur l'ensemble $\mathbb{R}$. Cependant, pour pouvoir être jouée, la musique nécessite d'être écrite et le spectre continue des notes de musique doit donc être discrétisé.
+
+Dès l'Antiquité, les mathématiciens se sont intéressés à la théorisation de la musique. Il semble ainsi que Pythagore ait, au sixième siècle avant Jésus Christ, mis au point la première gamme, bien que ses travaux aient largement été influencés par ceux des Babyloniens, plusieurs millénaires plus tôt.
+
+Une gamme est définie comme un ensemble de notes intéressant d'un point de vue musical. Il est donc nécessaire de décider du nombre de notes dont chaque gamme est composée et des intervalles de fréquences les séparant. À travers l'histoire, de nombreux système musicaux ont été mis au point dans le monde, et bien que le système occidental tende à s'imposer, certains autres continus d'être utilisés. On peut donc s'interroger sur le système musical choisi par les Européen : quels en sont les avantages et les inconvénients ? Pourquoi n'est-il pas idéal ?
+
+De façon à répondre à cette problématique, nous commencerons par en faire une étude mathématique en formalisant l'idée de gammes, puis nous illustrerons ces notions.
+
+
+
+\chapter*{Résolution mathématique}
+% Voir Emilie
+Alors que la gamme pythagoricienne aient été presque exclusivement utilisée en occident jusqu'à la fin du Moyen-Âge, Gioseffo Zarlino préconise, au seizième siècle, de diviser l'octave en douze intervalles, mettant en place le système encore utilisé de nos jours en complémentant la gamme de Pythagore composée des sept notes dites « naturelles » qui sont do, ré, mi, fa, sol, la et si.
+
+Cette gamme à douze notes est celle qui s'est imposée en Europe sous une forme particulière qu'on appelle « gamme tempérée ».
+
+\section*{Modélisation}
+Une gamme se construit à partir d'une octave qui est un intervalle $[f,2f[$, où $f\in\mathbb{R_+^*}$ est une fréquence. Dans une octave, on veut sélectionner un ensemble discret de fréquences qui seront les notes.\\
+
+Empiriquement, on remarque qu'une note jouée en même temps qu'une note de fréquence double (ou triple) sonne bien - on parle de consonance. L'explication nous vient d'Euler : l'oreille détecte l'ordre dans les vibrations : on observe sur la figure 1 que le rapport de fréquences 1/2 est plus ordonné que le rapport de fréquences 7/8 ; celui-ci est n'est donc pas aussi agréable à écouter que celui-là.
+\begin{center}
+	\includegraphics{projetEuler.png}
+
+	\textbf{Figure 1.} Comparaison des rapports de fréquences 1/2 et 7/8
+\end{center}
+
+Comme critère de construction de la gamme, il est donc nécessaire que chaque note soit accompagnée des notes de fréquences double et triple. La gamme doit donc être stable par multiplication par $2^n$ et $3^n$, où $n\in\mathbb{N}$.\\
+
+Si on suppose ces critères vérifiés pour une gamme, on passe au logarithme binaire et la gamme $\mathcal{G}$ ainsi définie est stable par translation par les entiers et par $\alpha=log_2(3)\approx1.58$. Or $\alpha$ est irrationnel donc le sous-groupe engendré par 1 et $\alpha$ est dense dans $\mathbb{R}$, donc $\mathcal{G}$ ne peut pas être discret. On s'intéresse donc aux approximations : on veut de la gamme $\mathcal{G}$ qu'elle soit la plus exacte et la plus restreinte possible.\\
+
+Prioriser la première stabilité (translations par des entiers) rend la deuxième condition (translations par $\alpha$) irremplissable. Ces deux translations sont illustrées sur la figure 2.
+\begin{center}
+	\includegraphics[scale=0.4]{transposition.png}
+
+	\textbf{Figure 2.} Transposition par 1 et $\alpha$ sur trois octaves
+\end{center}
+
+Pour quantifier le décalage engendré par une translation de $\alpha$, on introduit le défaut :
+\begin{center}
+	$D = \sum \limits_{x\in\mathcal{A}} dist(x+\alpha,\mathcal{G})$ où $\mathcal{A}=\mathcal{G}\cap[0,1[$.
+\end{center}
+
+La suite consistera à chercher à minimiser les nombre de notes et le défaut.
+\section*{Les fractions continues}
+Le développement d'un réel en fractions continues est simplement une façon particulière d'écrire ce réel. Ce développement présente notamment un intérêt dans le cas des nombres pour lesquels il n'est pas possible d'obtenir un développement décimal complet, c'est-à-dire pour les irrationnels.\\
+
+Considérons $a\in\mathbb{R}$. Écrire a en fractions continues, c'est trouver une suite $(a_n)_{n\in\mathbb{N}}\in\mathbb{N}^\mathbb{N}$ telle que :
+\begin{center}
+	$a=a_0+\cfrac{1}{a_1+\cfrac{1}{a_2+\cfrac{1}{a_3+...}}}\defeq [a_0;a_1,...,a_n,...]$
+\end{center}
+
+Il apparaît donc que : $a_0=\lfloor a \rfloor$, $a_1=\lfloor \frac{1}{a-\lfloor a \rfloor} \rfloor$, etc. On peut aussi monter que si a est un nombre irrationnel, alors a admet un développement en fractions continues infini.\\
+
+Il existe donc des suites $(p_n)_{n\in\mathbb{N}}\in\mathbb{N}^\mathbb{N}$ et $(q_n)_{n\in\mathbb{N}}\in\mathbb{N}^\mathbb{N}$ telles que : $\forall n\in\mathbb{N}, [a_0;a_1,a_2,...,a_n]=\frac{p_n}{q_n}$ ; ces suites satisfont aux relations :
+
+\begin{center}
+	\[\left\{\begin{array}{r c l}
+		p_0 &=& a_0\\
+		p_1 &=& a_1 \cdot a_0+1\\
+		p_n &=& a_n\cdot p_{n-1}+p_{n-2},$ $$ $\forall n\in\mathbb{N}\backslash\{1,2\} \\
+		\\
+		q_0 &=& 1\\
+		q_1 &=& a_1\\
+		q_n &=& a_n\cdot q_{n-1}+q_{n-2},$ $$ $\forall n\in\mathbb{N}\backslash\{1,2\}
+	\end{array}\right.\]
+\end{center}
+
+Le nombre rationnel $\frac{p_n}{q_n}$ est appelé la $n^e$ réduite de $\alpha$, et chacune des réduites de $\alpha$ pour $n\geq1$ est une meilleure approximation de $\alpha$, c'est-à-dire que $\lvert q_n\cdot\alpha-p_n \rvert$ est la distance entre $q_n\cdot\alpha$ et $\mathbb{Z}$.
+
+On peut finalement montrer pas récurrence que :
+\begin{center}
+	$\forall n\in\mathbb{N}^{*}$, $p_{n-1}\cdot q_n - p_n\cdot q_{n-1} = (-1)^n.$
+\end{center}
+ 
+\section*{Application des fractions continues à la théorisation musicale}
+Nous avons dors et déjà mis en avant l'importance du réel $\alpha=log_2(3)$. Ce nombre étant irrationnel mais nécessitant d'être connu de manière précise pour pouvoir construire la gamme, les fractions continues trouvent leur intérêt en ce qu'elle permette d'obtenir une très bonne approximation de ce réel. 
+
+On obtient ainsi :
+\begin{center}
+	$\alpha=[1;1,1,2,2,3,1,5,2,23,2,2,1,1,55,1,...]$
+\end{center}
+ainsi que les premières réduites de $\alpha$ : 
+
+\begin{center}   
+	\renewcommand{\arraystretch}{1.8}
+	\begin{tabular}{ | l || c | c | c | c | c | c | c | c | c | c | }
+		\hline
+		\textbf{Réduites} & $\alpha$ & $1$ & $2$ & $\frac{3}{2}$ & $\frac{8}{5}$ & $\frac{19}{12}$ & $\frac{65}{41}$ & $\frac{84}{53}$ & $\frac{485}{306}$ & $\frac{1054}{665}$ \\ \hline
+		\textbf{Valeurs approchées} & 1.58496 & 1 & 2 & 1.5 & 1.6 & 1.58333 & 1.58537 & 1.58491 & 1.58497 & 1.58496 \\
+		\hline
+	\end{tabular}  
+	\newline\newline
+	\textbf{Figure 3.} Tableau recensant les valeurs exactes et approchée des réduites de $\alpha$ 
+\end{center}
+
+
+
+\chapter*{Illustration : piano et harmonographe}
+
+\end{document}
