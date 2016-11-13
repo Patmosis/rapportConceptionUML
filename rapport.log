@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  12 NOV 2016 17:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  13 NOV 2016 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -659,24 +659,28 @@ ine 46.
 (pdftex.def)             Requested size: 432.41884pt x 348.10316pt.
  [5 <./Images/prisededecisionfichederenseignements.png (PNG copy)>] [6 <./Image
 s/initialisationnouvelleannee.png (PNG copy)>] <Images/diagrammedetats.png, id=
-38, 1597.97pt x 830.10126pt>
+38, 1591.9475pt x 1671.24374pt>
 File: Images/diagrammedetats.png Graphic file (type png)
 
 <use Images/diagrammedetats.png>
 Package pdftex.def Info: Images/diagrammedetats.png used on input line 50.
-(pdftex.def)             Requested size: 559.29788pt x 290.5398pt.
+(pdftex.def)             Requested size: 557.18997pt x 584.94408pt.
  [7
 
- <./Images/diagrammedetats.png (PNG copy)>]
-<Images/diagentiassoc.png, id=42, 882.29625pt x 689.57625pt>
+]
+Overfull \vbox (47.45035pt too high) has occurred while \output is active []
+
+
+[8 <./Images/diagrammedetats.png (PNG copy)>]
+<Images/diagentiassoc.png, id=45, 882.29625pt x 689.57625pt>
 File: Images/diagentiassoc.png Graphic file (type png)
 
 <use Images/diagentiassoc.png>
 Package pdftex.def Info: Images/diagentiassoc.png used on input line 56.
 (pdftex.def)             Requested size: 441.14705pt x 344.78728pt.
- [8
+ [9
 
- <./Images/diagentiassoc.png>] [9
+ <./Images/diagentiassoc.png>] [10
 
 ]
 (./rapport.aux) ) 
@@ -693,10 +697,10 @@ Here is how much of TeX's memory you used:
 > </home/gauthier/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home
 /gauthier/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gauthie
 r/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on rapport.pdf (10 pages, 514854 bytes).
+Output written on rapport.pdf (11 pages, 585945 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 180 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
